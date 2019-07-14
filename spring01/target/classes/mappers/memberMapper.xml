@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- root-context.xml -> 파일 이름 반드시 Mapper.xml로 끝나야됨 -->
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="member">
+	<select id="memberList" resultType="memberDto">
+	<!-- resultType은 자료형임. 틀리면 안됨 -->
+	  select * from member
+	  order by name
+	  <!-- resultType 길게 안쓰려면 mybatis-config.xml에서
+	  <typeAliases> 에서 설정하면 된다.
+	   -->
+	  <!-- 쿼리에 ; 안찍히기 너무 중요 -->
+	</select>
+	
+	<!-- sql쿼리문꺼 복사한것임 
+	insert into member(userid, passwd, name, email) values
+('kim', '1234', '김철수', 'kim@gmail.com') -->
+	
+	<insert id="insertMember">
+	  insert into member (userid, passwd, name, email) values
+	  (#{userid}, #{passwd}, #{name}, #{email})
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
